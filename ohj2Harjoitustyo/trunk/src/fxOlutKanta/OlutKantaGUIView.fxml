@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fi.jyu.mit.fxgui.ComboBoxChooser?>
+<?import fi.jyu.mit.fxgui.ListChooser?>
+<?import fi.jyu.mit.fxgui.StringGrid?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxOlutKanta.OlutKantaGUIController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu text="Tiedosto">
+            <items>
+                  <MenuItem mnemonicParsing="true" onAction="#handleUusiKanta" text="Uusi kanta" />
+                  <MenuItem mnemonicParsing="true" onAction="#handleAvaa" text="Avaa kanta" />
+                  <MenuItem mnemonicParsing="true" onAction="#handleTallenna" text="Tallenna kanta" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="true" text="Muokkaa">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleUusiOluttyyppi" text="Lisää oluttyyppi" />
+                  <MenuItem mnemonicParsing="false" onAction="#handlePoistaOluttyyppi" text="Poista oluttyyppi" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleUusiOlut" text="Lisää olut" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaOlut" text="Muokkaa olutta" />
+                  <MenuItem mnemonicParsing="false" onAction="#handlePoistaOlut" text="Poista olut" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="true" text="Apua">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Apua" />
+               </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.27235772357723576" BorderPane.alignment="CENTER">
+        <items>
+            <BorderPane>
+               <top>
+                  <VBox BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Tyyppi" />
+                        <ComboBoxChooser fx:id="cbKentat" maxWidth="1.7976931348623157E308" onAction="#handleHakuehto" rivit="Oluttyyppi ID&#10;Otsikko ID&#10;Oluttyyppi" />
+                        <HBox spacing="5.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <children>
+                              <TextField fx:id="hakuehto" onKeyReleased="#handleHakuehto" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </top>
+               <center>
+                  <ListChooser fx:id="chooserOluttyypit" maxHeight="1.7976931348623157E308" onKeyPressed="#handleHakuehto" prefHeight="100.0" rivit="Altbier&#10;Amber Ale&#10;American Pale Ale&#10;American Strong Ale&#10;Barley Wine&#10;Bitter&#10;Brown Ale&#10;Cream Ale&#10;English Pale Ale&#10;English Strong Ale&#10;Golden Ale/Blond Ale&#10;Hedelmä/mauste ALE&#10;Imperial/Double IPA&#10;India Pale Ale (IPA)&#10;Irish Ale&#10;Kölsch&#10;Mild Ale&#10;Old Ale&#10;Premium Bitter /ESB&#10;Sahti&#10;Scotch Ale&#10;Scottish Ale&#10;&#10;Abbey Dubbel&#10;Abbey Tripel&#10;Abt/Quadrupel&#10;Belgialainen ale&#10;Belgialainen vahva ale&#10;Bière de Garde&#10;Flaamilainen hapan ale&#10;Luostariolut&#10;&#10;Dry Stout&#10;Foreign Stout&#10;Imperial Stout&#10;Porter&#10;Stout&#10;Sweet Stout&#10;&#10;Amerikkalainen vehnäolut&#10;Berliner Weisse&#10;Dunkel-Weizen&#10;Hefe-Weizenbier&#10;Kristall-Weizenbier&#10;Lambicit&#10;Weizen-Bock&#10;Witbier eli belgialainen vehnäolut&#10;&#10;Amerikkalaistyylinen tumma lager&#10;Bock eli pukki&#10;Böömiläinen pilsener&#10;California Common&#10;Doppelbock eli kaksoispukki&#10;Dortmunder/Helles&#10;Dunkel&#10;Eisbock&#10;European Strong Lager&#10;Lager&#10;Malt Liquor&#10;Oktoberfest/Märzen&#10;Pilsener&#10;Premium Lager&#10;Pöytäolut&#10;Saksalainen pilsener&#10;Savuolut&#10;Schwarzbier eli mustaolut&#10;Sima (Mead)&#10;Suodattamaton lager&#10;Vaalea lager&#10;Vienna, Wienerbier&#10;Zwickel/Keller/Landbier&#10;&#10;Lambicit&#10;Lambicit Faro&#10;Lambicit Gueuze&#10;Lambicit Hedelmä&#10;Lambicit Mars&#10;Lambicit Sekoittamaton&#10;" BorderPane.alignment="CENTER" />
+               </center>
+               <bottom>
+                  <HBox alignment="CENTER_RIGHT" spacing="5.0" BorderPane.alignment="CENTER">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleUusiOluttyyppi" text="Lisää uusi tyyppi">
+                           <tooltip>
+                              <Tooltip text="Lisää uusi olut" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handlePoistaOluttyyppi" text="Poista oluttyyppi">
+                           <tooltip>
+                              <Tooltip text="Lisää uusi olut" />
+                           </tooltip>
+                        </Button>
+                     </children>
+                  </HBox>
+               </bottom>
+            </BorderPane>
+            <BorderPane>
+               <bottom>
+                  <HBox alignment="CENTER_RIGHT" spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button mnemonicParsing="true" onAction="#handleMuokkaaOlut" text="Muokkaa">
+                           <tooltip>
+                              <Tooltip text="Muokkaa valittua olutta" />
+                           </tooltip>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleUusiOlut" text="Lisää uusi olut">
+                           <tooltip>
+                              <Tooltip text="Lisää uusi olut" />
+                           </tooltip>
+                        </Button>
+                        <Button onAction="#handlePoistaOlut" text="Poista olut">
+                           <tooltip>
+                              <Tooltip text="Etsi olutta merkin mukaan" />
+                           </tooltip>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </HBox>
+               </bottom>
+               <top>
+                  <VBox spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Olut" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </top>
+               <center>
+                  <StringGrid fx:id="tableOluet" emptyStyleClass="" rivit="Merkki|Alkoholi %|Tyyppi|Maa|Arvio|Lisätietoja&#10;Aura | 5.2 | 054 | Suomi | 3 | Juotavaa&#10;Ayinger Urweisse | 5.8 | 039 | Saksa | 4 | Muistaakseni ihan jees&#10;Beck's | 5.0 | 054 | Saksa | 3 | Perus&#10;Berliner Kindl Jubiläums Pilsner | 5.1 | 057 | Saksa | 4 | Nam&#10;Franziskaner Weissbier Dunkel | 5.0 | 039 | Saksa | 3 | Nam&#10;Guinness Draught | 4.2 | 031 |  Irlanti | 4 | Vaahtobileet&#10;Hoegaarden Witbier | 4.9 | 044 |  Belgia | 3 | Nam&#10;Karhu III | 4.6 | 054 | Suomi | 3 | Parempaa ku koff&#10;Koff III | 4.5 | 054 | Suomi | 2 | Halvinta paskaa&#10;Laitilan Kukko Vehnä | 5.5 | 040 | Suomi | 3 | Nam&#10;Lammin Sahti | 7.5 | 064 | Suomi | 3 | Nam&#10;Leffe Blonde | 6.6 | 052 | Belgia | 4 | Uuu mama&#10;Olvi Export A | 5.2 | 054  |  Suomi | 2 | Nam&#10;Olvi IPA Iisalmi Pale Ale | 5.0 | 014 | Suomi | 3 | Nam&#10;Pilsner Urquell | 4.4 | 057  |  Tsekki | 3 | Aah Praha &lt;3&#10;Polar Monkeys White Collar Golden Ale | 5.5 | 011 |  Tanska | 4 | Apinoiden maltaita&#10;Prykmestar Luomu Pils | 5.2 | 057 |  Suomi | 3 | Nam&#10;Saku Porter | 6.9 | 034 | Viro | 3 | Aika meh&#10;San Miguel Especial | 5.4 | 054 |  Espanja | 3 | Nam&#10;Sinebrychoff Porter | 7.2 | 034 |  Suomi | 3 | Nam" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+        </items>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </SplitPane>
+   </center>
+   <bottom>
+      <BorderPane BorderPane.alignment="CENTER">
+         <bottom>
+            <Label fx:id="labelVirhe" alignment="CENTER" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </bottom>
+</BorderPane>
